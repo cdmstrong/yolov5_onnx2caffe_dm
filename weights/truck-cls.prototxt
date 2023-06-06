@@ -1,0 +1,1238 @@
+layer {
+  name: "input"
+  type: "Input"
+  top: "input"
+  input_param {
+    shape {
+      dim: 1
+      dim: 3
+      dim: 224
+      dim: 224
+    }
+  }
+}
+layer {
+  name: "Conv_0"
+  type: "Convolution"
+  bottom: "input"
+  top: "67"
+  convolution_param {
+    num_output: 32
+    bias_term: true
+    group: 1
+    pad_h: 2
+    pad_w: 2
+    kernel_h: 6
+    kernel_w: 6
+    stride_h: 2
+    stride_w: 2
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_1"
+  type: "Sigmoid"
+  bottom: "67"
+  top: "68"
+}
+layer {
+  name: "Mul_2"
+  type: "Eltwise"
+  bottom: "67"
+  bottom: "68"
+  top: "69"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_3"
+  type: "Convolution"
+  bottom: "69"
+  top: "70"
+  convolution_param {
+    num_output: 64
+    bias_term: true
+    group: 1
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    stride_h: 2
+    stride_w: 2
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_4"
+  type: "Sigmoid"
+  bottom: "70"
+  top: "71"
+}
+layer {
+  name: "Mul_5"
+  type: "Eltwise"
+  bottom: "70"
+  bottom: "71"
+  top: "72"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_6"
+  type: "Convolution"
+  bottom: "72"
+  top: "73"
+  convolution_param {
+    num_output: 32
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_7"
+  type: "Sigmoid"
+  bottom: "73"
+  top: "74"
+}
+layer {
+  name: "Mul_8"
+  type: "Eltwise"
+  bottom: "73"
+  bottom: "74"
+  top: "75"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_9"
+  type: "Convolution"
+  bottom: "75"
+  top: "76"
+  convolution_param {
+    num_output: 32
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_10"
+  type: "Sigmoid"
+  bottom: "76"
+  top: "77"
+}
+layer {
+  name: "Mul_11"
+  type: "Eltwise"
+  bottom: "76"
+  bottom: "77"
+  top: "78"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_12"
+  type: "Convolution"
+  bottom: "78"
+  top: "79"
+  convolution_param {
+    num_output: 32
+    bias_term: true
+    group: 1
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_13"
+  type: "Sigmoid"
+  bottom: "79"
+  top: "80"
+}
+layer {
+  name: "Mul_14"
+  type: "Eltwise"
+  bottom: "79"
+  bottom: "80"
+  top: "81"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Add_15"
+  type: "Eltwise"
+  bottom: "75"
+  bottom: "81"
+  top: "82"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "Conv_16"
+  type: "Convolution"
+  bottom: "72"
+  top: "83"
+  convolution_param {
+    num_output: 32
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_17"
+  type: "Sigmoid"
+  bottom: "83"
+  top: "84"
+}
+layer {
+  name: "Mul_18"
+  type: "Eltwise"
+  bottom: "83"
+  bottom: "84"
+  top: "85"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Concat_19"
+  type: "Concat"
+  bottom: "82"
+  bottom: "85"
+  top: "86"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "Conv_20"
+  type: "Convolution"
+  bottom: "86"
+  top: "87"
+  convolution_param {
+    num_output: 64
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_21"
+  type: "Sigmoid"
+  bottom: "87"
+  top: "88"
+}
+layer {
+  name: "Mul_22"
+  type: "Eltwise"
+  bottom: "87"
+  bottom: "88"
+  top: "89"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_23"
+  type: "Convolution"
+  bottom: "89"
+  top: "90"
+  convolution_param {
+    num_output: 128
+    bias_term: true
+    group: 1
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    stride_h: 2
+    stride_w: 2
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_24"
+  type: "Sigmoid"
+  bottom: "90"
+  top: "91"
+}
+layer {
+  name: "Mul_25"
+  type: "Eltwise"
+  bottom: "90"
+  bottom: "91"
+  top: "92"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_26"
+  type: "Convolution"
+  bottom: "92"
+  top: "93"
+  convolution_param {
+    num_output: 64
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_27"
+  type: "Sigmoid"
+  bottom: "93"
+  top: "94"
+}
+layer {
+  name: "Mul_28"
+  type: "Eltwise"
+  bottom: "93"
+  bottom: "94"
+  top: "95"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_29"
+  type: "Convolution"
+  bottom: "95"
+  top: "96"
+  convolution_param {
+    num_output: 64
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_30"
+  type: "Sigmoid"
+  bottom: "96"
+  top: "97"
+}
+layer {
+  name: "Mul_31"
+  type: "Eltwise"
+  bottom: "96"
+  bottom: "97"
+  top: "98"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_32"
+  type: "Convolution"
+  bottom: "98"
+  top: "99"
+  convolution_param {
+    num_output: 64
+    bias_term: true
+    group: 1
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_33"
+  type: "Sigmoid"
+  bottom: "99"
+  top: "100"
+}
+layer {
+  name: "Mul_34"
+  type: "Eltwise"
+  bottom: "99"
+  bottom: "100"
+  top: "101"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Add_35"
+  type: "Eltwise"
+  bottom: "95"
+  bottom: "101"
+  top: "102"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "Conv_36"
+  type: "Convolution"
+  bottom: "102"
+  top: "103"
+  convolution_param {
+    num_output: 64
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_37"
+  type: "Sigmoid"
+  bottom: "103"
+  top: "104"
+}
+layer {
+  name: "Mul_38"
+  type: "Eltwise"
+  bottom: "103"
+  bottom: "104"
+  top: "105"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_39"
+  type: "Convolution"
+  bottom: "105"
+  top: "106"
+  convolution_param {
+    num_output: 64
+    bias_term: true
+    group: 1
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_40"
+  type: "Sigmoid"
+  bottom: "106"
+  top: "107"
+}
+layer {
+  name: "Mul_41"
+  type: "Eltwise"
+  bottom: "106"
+  bottom: "107"
+  top: "108"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Add_42"
+  type: "Eltwise"
+  bottom: "102"
+  bottom: "108"
+  top: "109"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "Conv_43"
+  type: "Convolution"
+  bottom: "92"
+  top: "110"
+  convolution_param {
+    num_output: 64
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_44"
+  type: "Sigmoid"
+  bottom: "110"
+  top: "111"
+}
+layer {
+  name: "Mul_45"
+  type: "Eltwise"
+  bottom: "110"
+  bottom: "111"
+  top: "112"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Concat_46"
+  type: "Concat"
+  bottom: "109"
+  bottom: "112"
+  top: "113"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "Conv_47"
+  type: "Convolution"
+  bottom: "113"
+  top: "114"
+  convolution_param {
+    num_output: 128
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_48"
+  type: "Sigmoid"
+  bottom: "114"
+  top: "115"
+}
+layer {
+  name: "Mul_49"
+  type: "Eltwise"
+  bottom: "114"
+  bottom: "115"
+  top: "116"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_50"
+  type: "Convolution"
+  bottom: "116"
+  top: "117"
+  convolution_param {
+    num_output: 256
+    bias_term: true
+    group: 1
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    stride_h: 2
+    stride_w: 2
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_51"
+  type: "Sigmoid"
+  bottom: "117"
+  top: "118"
+}
+layer {
+  name: "Mul_52"
+  type: "Eltwise"
+  bottom: "117"
+  bottom: "118"
+  top: "119"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_53"
+  type: "Convolution"
+  bottom: "119"
+  top: "120"
+  convolution_param {
+    num_output: 128
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_54"
+  type: "Sigmoid"
+  bottom: "120"
+  top: "121"
+}
+layer {
+  name: "Mul_55"
+  type: "Eltwise"
+  bottom: "120"
+  bottom: "121"
+  top: "122"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_56"
+  type: "Convolution"
+  bottom: "122"
+  top: "123"
+  convolution_param {
+    num_output: 128
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_57"
+  type: "Sigmoid"
+  bottom: "123"
+  top: "124"
+}
+layer {
+  name: "Mul_58"
+  type: "Eltwise"
+  bottom: "123"
+  bottom: "124"
+  top: "125"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_59"
+  type: "Convolution"
+  bottom: "125"
+  top: "126"
+  convolution_param {
+    num_output: 128
+    bias_term: true
+    group: 1
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_60"
+  type: "Sigmoid"
+  bottom: "126"
+  top: "127"
+}
+layer {
+  name: "Mul_61"
+  type: "Eltwise"
+  bottom: "126"
+  bottom: "127"
+  top: "128"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Add_62"
+  type: "Eltwise"
+  bottom: "122"
+  bottom: "128"
+  top: "129"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "Conv_63"
+  type: "Convolution"
+  bottom: "129"
+  top: "130"
+  convolution_param {
+    num_output: 128
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_64"
+  type: "Sigmoid"
+  bottom: "130"
+  top: "131"
+}
+layer {
+  name: "Mul_65"
+  type: "Eltwise"
+  bottom: "130"
+  bottom: "131"
+  top: "132"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_66"
+  type: "Convolution"
+  bottom: "132"
+  top: "133"
+  convolution_param {
+    num_output: 128
+    bias_term: true
+    group: 1
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_67"
+  type: "Sigmoid"
+  bottom: "133"
+  top: "134"
+}
+layer {
+  name: "Mul_68"
+  type: "Eltwise"
+  bottom: "133"
+  bottom: "134"
+  top: "135"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Add_69"
+  type: "Eltwise"
+  bottom: "129"
+  bottom: "135"
+  top: "136"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "Conv_70"
+  type: "Convolution"
+  bottom: "136"
+  top: "137"
+  convolution_param {
+    num_output: 128
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_71"
+  type: "Sigmoid"
+  bottom: "137"
+  top: "138"
+}
+layer {
+  name: "Mul_72"
+  type: "Eltwise"
+  bottom: "137"
+  bottom: "138"
+  top: "139"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_73"
+  type: "Convolution"
+  bottom: "139"
+  top: "140"
+  convolution_param {
+    num_output: 128
+    bias_term: true
+    group: 1
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_74"
+  type: "Sigmoid"
+  bottom: "140"
+  top: "141"
+}
+layer {
+  name: "Mul_75"
+  type: "Eltwise"
+  bottom: "140"
+  bottom: "141"
+  top: "142"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Add_76"
+  type: "Eltwise"
+  bottom: "136"
+  bottom: "142"
+  top: "143"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "Conv_77"
+  type: "Convolution"
+  bottom: "119"
+  top: "144"
+  convolution_param {
+    num_output: 128
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_78"
+  type: "Sigmoid"
+  bottom: "144"
+  top: "145"
+}
+layer {
+  name: "Mul_79"
+  type: "Eltwise"
+  bottom: "144"
+  bottom: "145"
+  top: "146"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Concat_80"
+  type: "Concat"
+  bottom: "143"
+  bottom: "146"
+  top: "147"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "Conv_81"
+  type: "Convolution"
+  bottom: "147"
+  top: "148"
+  convolution_param {
+    num_output: 256
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_82"
+  type: "Sigmoid"
+  bottom: "148"
+  top: "149"
+}
+layer {
+  name: "Mul_83"
+  type: "Eltwise"
+  bottom: "148"
+  bottom: "149"
+  top: "150"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_84"
+  type: "Convolution"
+  bottom: "150"
+  top: "151"
+  convolution_param {
+    num_output: 512
+    bias_term: true
+    group: 1
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    stride_h: 2
+    stride_w: 2
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_85"
+  type: "Sigmoid"
+  bottom: "151"
+  top: "152"
+}
+layer {
+  name: "Mul_86"
+  type: "Eltwise"
+  bottom: "151"
+  bottom: "152"
+  top: "153"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_87"
+  type: "Convolution"
+  bottom: "153"
+  top: "154"
+  convolution_param {
+    num_output: 256
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_88"
+  type: "Sigmoid"
+  bottom: "154"
+  top: "155"
+}
+layer {
+  name: "Mul_89"
+  type: "Eltwise"
+  bottom: "154"
+  bottom: "155"
+  top: "156"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_90"
+  type: "Convolution"
+  bottom: "156"
+  top: "157"
+  convolution_param {
+    num_output: 256
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_91"
+  type: "Sigmoid"
+  bottom: "157"
+  top: "158"
+}
+layer {
+  name: "Mul_92"
+  type: "Eltwise"
+  bottom: "157"
+  bottom: "158"
+  top: "159"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_93"
+  type: "Convolution"
+  bottom: "159"
+  top: "160"
+  convolution_param {
+    num_output: 256
+    bias_term: true
+    group: 1
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_94"
+  type: "Sigmoid"
+  bottom: "160"
+  top: "161"
+}
+layer {
+  name: "Mul_95"
+  type: "Eltwise"
+  bottom: "160"
+  bottom: "161"
+  top: "162"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Add_96"
+  type: "Eltwise"
+  bottom: "156"
+  bottom: "162"
+  top: "163"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "Conv_97"
+  type: "Convolution"
+  bottom: "153"
+  top: "164"
+  convolution_param {
+    num_output: 256
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_98"
+  type: "Sigmoid"
+  bottom: "164"
+  top: "165"
+}
+layer {
+  name: "Mul_99"
+  type: "Eltwise"
+  bottom: "164"
+  bottom: "165"
+  top: "166"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Concat_100"
+  type: "Concat"
+  bottom: "163"
+  bottom: "166"
+  top: "167"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "Conv_101"
+  type: "Convolution"
+  bottom: "167"
+  top: "168"
+  convolution_param {
+    num_output: 512
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_102"
+  type: "Sigmoid"
+  bottom: "168"
+  top: "169"
+}
+layer {
+  name: "Mul_103"
+  type: "Eltwise"
+  bottom: "168"
+  bottom: "169"
+  top: "170"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "Conv_104"
+  type: "Convolution"
+  bottom: "170"
+  top: "171"
+  convolution_param {
+    num_output: 1280
+    bias_term: true
+    group: 1
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Sigmoid_105"
+  type: "Sigmoid"
+  bottom: "171"
+  top: "172"
+}
+layer {
+  name: "Mul_106"
+  type: "Eltwise"
+  bottom: "171"
+  bottom: "172"
+  top: "173"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "GlobalAveragePool_107"
+  type: "Pooling"
+  bottom: "173"
+  top: "174"
+  pooling_param {
+    pool: AVE
+    global_pooling: true
+  }
+}
+layer {
+  name: "Flatten_108"
+  type: "Flatten"
+  bottom: "174"
+  top: "175"
+}
+layer {
+  name: "Gemm_109"
+  type: "InnerProduct"
+  bottom: "175"
+  top: "output"
+  inner_product_param {
+    num_output: 2
+    bias_term: true
+  }
+}
+
